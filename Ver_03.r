@@ -11,7 +11,7 @@ library(dplyr)
 library(rgdal)
  
 # define file info 注意文件的路径，不能有中文
-fileInfo <- data.frame(         nodeCol=1, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_1985_clip.tif", rasterBand=1) %>%
+fileInfo <- data.frame(          nodeCol=1, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_1985_clip.tif", rasterBand=1) %>%
                rbind(data.frame(nodeCol=2, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_1990_clip.tif", rasterBand=1)) %>%
                rbind(data.frame(nodeCol=3, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_1995_clip.tif", rasterBand=1)) %>%
                rbind(data.frame(nodeCol=4, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_2000_clip.tif", rasterBand=1)) %>%
@@ -28,27 +28,27 @@ fileInfo <- data.frame(         nodeCol=1, rasterFile="G:/Bachelor_Degree_Thesis
 
 nodeInfo <- data.frame(         nodeName="1985 Cropland"                                         , nodeID=0,   mapClass=1,  nodeCol=1, nodeGroup='a')  %>%
                rbind(data.frame(nodeName="1985 Forest"                                           , nodeID=1,   mapClass=2,  nodeCol=1, nodeGroup='b')) %>%
-               rbind(data.frame(nodeName="1985 Shrub"                                           , nodeID=2,   mapClass=3,  nodeCol=1, nodeGroup='c')) %>%
-               rbind(data.frame(nodeName="1985 Grassland"                              , nodeID=3,   mapClass=4,  nodeCol=1, nodeGroup='d')) %>%
-               rbind(data.frame(nodeName="1985 Water"                                         , nodeID=4,   mapClass=5,  nodeCol=1, nodeGroup='e')) %>%
-               rbind(data.frame(nodeName="1985 Sonw/Ice"                        , nodeID=5,   mapClass=6,  nodeCol=1, nodeGroup='f')) %>%
-               rbind(data.frame(nodeName="1985 Barren"                          , nodeID=6,   mapClass=7,  nodeCol=1, nodeGroup='g')) %>%
-               rbind(data.frame(nodeName="1985 Impervious"               , nodeID=7,   mapClass=8,  nodeCol=1, nodeGroup='h')) %>%
-               rbind(data.frame(nodeName="1985 Wetland"                  , nodeID=8,   mapClass=9,  nodeCol=1, nodeGroup='i')) %>%
+               rbind(data.frame(nodeName="1985 Shrub"                                            , nodeID=2,   mapClass=3,  nodeCol=1, nodeGroup='c')) %>%
+               rbind(data.frame(nodeName="1985 Grassland"                                        , nodeID=3,   mapClass=4,  nodeCol=1, nodeGroup='d')) %>%
+               rbind(data.frame(nodeName="1985 Water"                                            , nodeID=4,   mapClass=5,  nodeCol=1, nodeGroup='e')) %>%
+               rbind(data.frame(nodeName="1985 Sonw/Ice"                                         , nodeID=5,   mapClass=6,  nodeCol=1, nodeGroup='f')) %>%
+               rbind(data.frame(nodeName="1985 Barren"                                           , nodeID=6,   mapClass=7,  nodeCol=1, nodeGroup='g')) %>%
+               rbind(data.frame(nodeName="1985 Impervious"                                       , nodeID=7,   mapClass=8,  nodeCol=1, nodeGroup='h')) %>%
+               rbind(data.frame(nodeName="1985 Wetland"                                          , nodeID=8,   mapClass=9,  nodeCol=1, nodeGroup='i')) %>%
                 
                rbind(data.frame(nodeName="1990 Cropland"                                         , nodeID=9,   mapClass=1,  nodeCol=2, nodeGroup='a')) %>% 
                rbind(data.frame(nodeName="1990 Forest"                                           , nodeID=10,  mapClass=2,  nodeCol=2, nodeGroup='b')) %>%
-               rbind(data.frame(nodeName="1990 Shrub"                                           , nodeID=11,  mapClass=3,  nodeCol=2, nodeGroup='c')) %>%
-               rbind(data.frame(nodeName="1990 Grassland"                              , nodeID=12,  mapClass=4,  nodeCol=2, nodeGroup='d')) %>%
-               rbind(data.frame(nodeName="1990 Water"                                         , nodeID=13,  mapClass=5,  nodeCol=2, nodeGroup='e')) %>%
-               rbind(data.frame(nodeName="1990 Sonw/Ice"                        , nodeID=14,  mapClass=6,  nodeCol=2, nodeGroup='f')) %>%
-               rbind(data.frame(nodeName="1990 Barren"            , nodeID=15,  mapClass=7,  nodeCol=2, nodeGroup='g')) %>%
-               rbind(data.frame(nodeName="1990 Impervious"               , nodeID=16,  mapClass=8,  nodeCol=2, nodeGroup='h')) %>%
-               rbind(data.frame(nodeName="1990 Wetland"        , nodeID=17,  mapClass=9,  nodeCol=2, nodeGroup='i')) %>%
+               rbind(data.frame(nodeName="1990 Shrub"                                            , nodeID=11,  mapClass=3,  nodeCol=2, nodeGroup='c')) %>%
+               rbind(data.frame(nodeName="1990 Grassland"                                        , nodeID=12,  mapClass=4,  nodeCol=2, nodeGroup='d')) %>%
+               rbind(data.frame(nodeName="1990 Water"                                            , nodeID=13,  mapClass=5,  nodeCol=2, nodeGroup='e')) %>%
+               rbind(data.frame(nodeName="1990 Sonw/Ice"                                         , nodeID=14,  mapClass=6,  nodeCol=2, nodeGroup='f')) %>%
+               rbind(data.frame(nodeName="1990 Barren"                                           , nodeID=15,  mapClass=7,  nodeCol=2, nodeGroup='g')) %>%
+               rbind(data.frame(nodeName="1990 Impervious"                                       , nodeID=16,  mapClass=8,  nodeCol=2, nodeGroup='h')) %>%
+               rbind(data.frame(nodeName="1990 Wetland"                                          , nodeID=17,  mapClass=9,  nodeCol=2, nodeGroup='i')) %>%
   
                rbind(data.frame(nodeName="1995 Cropland"                                         , nodeID=18,  mapClass=1,  nodeCol=3, nodeGroup='a')) %>% 
                rbind(data.frame(nodeName="1995 Forest"                                           , nodeID=19,  mapClass=2,  nodeCol=3, nodeGroup='b')) %>%
-               rbind(data.frame(nodeName="1995 Shrub"                                           , nodeID=20,  mapClass=3,  nodeCol=3, nodeGroup='c')) %>%
+               rbind(data.frame(nodeName="1995 Shrub"                                            , nodeID=20,  mapClass=3,  nodeCol=3, nodeGroup='c')) %>%
                rbind(data.frame(nodeName="1995 Grassland"                              , nodeID=21,  mapClass=4,  nodeCol=3, nodeGroup='d')) %>%
                rbind(data.frame(nodeName="1995 Water"                                         , nodeID=22,  mapClass=5,  nodeCol=3, nodeGroup='e')) %>%
                rbind(data.frame(nodeName="1995 Sonw/Ice"                        , nodeID=23,  mapClass=6,  nodeCol=3, nodeGroup='f')) %>%
@@ -58,7 +58,7 @@ nodeInfo <- data.frame(         nodeName="1985 Cropland"                        
  
                rbind(data.frame(nodeName="2000 Cropland"                                         , nodeID=27,  mapClass=1,  nodeCol=4, nodeGroup='a')) %>% 
                rbind(data.frame(nodeName="2000 Forest"                                           , nodeID=28,  mapClass=2,  nodeCol=4, nodeGroup='b')) %>%
-               rbind(data.frame(nodeName="2000 Shrub"                                           , nodeID=29,  mapClass=3,  nodeCol=4, nodeGroup='c')) %>%
+               rbind(data.frame(nodeName="2000 Shrub"                                            , nodeID=29,  mapClass=3,  nodeCol=4, nodeGroup='c')) %>%
                rbind(data.frame(nodeName="2000 Grassland"                              , nodeID=30,  mapClass=4,  nodeCol=4, nodeGroup='d')) %>%
                rbind(data.frame(nodeName="2000 Water"                                         , nodeID=31,  mapClass=5,  nodeCol=4, nodeGroup='e')) %>%
                rbind(data.frame(nodeName="2000 Sonw/Ice"                        , nodeID=32,  mapClass=6,  nodeCol=4, nodeGroup='f')) %>%
@@ -68,7 +68,7 @@ nodeInfo <- data.frame(         nodeName="1985 Cropland"                        
                            
                rbind(data.frame(nodeName="2005 Cropland"                                         , nodeID=36,  mapClass=1,  nodeCol=5, nodeGroup='a')) %>% 
                rbind(data.frame(nodeName="2005 Forest"                                           , nodeID=37,  mapClass=2,  nodeCol=5, nodeGroup='b')) %>%
-               rbind(data.frame(nodeName="2005 Shrub"                                           , nodeID=38,  mapClass=3,  nodeCol=5, nodeGroup='c')) %>%
+               rbind(data.frame(nodeName="2005 Shrub"                                            , nodeID=38,  mapClass=3,  nodeCol=5, nodeGroup='c')) %>%
                rbind(data.frame(nodeName="2005 Grassland"                              , nodeID=39,  mapClass=4,  nodeCol=5, nodeGroup='d')) %>%
                rbind(data.frame(nodeName="2005 Water"                                         , nodeID=40,  mapClass=5,  nodeCol=5, nodeGroup='e')) %>%
                rbind(data.frame(nodeName="2005 Sonw/Ice"                        , nodeID=41,  mapClass=6,  nodeCol=5, nodeGroup='f')) %>%
@@ -78,7 +78,7 @@ nodeInfo <- data.frame(         nodeName="1985 Cropland"                        
                              
                rbind(data.frame(nodeName="2010 Cropland"                                         , nodeID=45,  mapClass=1,  nodeCol=6, nodeGroup='a')) %>% 
                rbind(data.frame(nodeName="2010 Forest"                                           , nodeID=46,  mapClass=2,  nodeCol=6, nodeGroup='b')) %>%
-               rbind(data.frame(nodeName="2010 Shrub"                                           , nodeID=47,  mapClass=3,  nodeCol=6, nodeGroup='c')) %>%
+               rbind(data.frame(nodeName="2010 Shrub"                                            , nodeID=47,  mapClass=3,  nodeCol=6, nodeGroup='c')) %>%
                rbind(data.frame(nodeName="2010 Grassland"                              , nodeID=48,  mapClass=4,  nodeCol=6, nodeGroup='d')) %>%
                rbind(data.frame(nodeName="2010 Water"                                         , nodeID=49,  mapClass=5,  nodeCol=6, nodeGroup='e')) %>%
                rbind(data.frame(nodeName="2010 Sonw/Ice"                        , nodeID=50,  mapClass=6,  nodeCol=6, nodeGroup='f')) %>%
@@ -88,7 +88,7 @@ nodeInfo <- data.frame(         nodeName="1985 Cropland"                        
                             
                rbind(data.frame(nodeName="2015 Cropland"                                         , nodeID=54,  mapClass=1,  nodeCol=7, nodeGroup='a')) %>% 
                rbind(data.frame(nodeName="2015 Forest"                                           , nodeID=55,  mapClass=2,  nodeCol=7, nodeGroup='b')) %>%
-               rbind(data.frame(nodeName="2015 Shrub"                                           , nodeID=56,  mapClass=3,  nodeCol=7, nodeGroup='c')) %>%
+               rbind(data.frame(nodeName="2015 Shrub"                                            , nodeID=56,  mapClass=3,  nodeCol=7, nodeGroup='c')) %>%
                rbind(data.frame(nodeName="2015 Grassland"                              , nodeID=57,  mapClass=4,  nodeCol=7, nodeGroup='d')) %>%
                rbind(data.frame(nodeName="2015 Water"                                         , nodeID=58,  mapClass=5,  nodeCol=7, nodeGroup='e')) %>%
                rbind(data.frame(nodeName="2015 Snow/Ice"                        , nodeID=59,  mapClass=6,  nodeCol=7, nodeGroup='f')) %>%
@@ -98,14 +98,14 @@ nodeInfo <- data.frame(         nodeName="1985 Cropland"                        
                              
                rbind(data.frame(nodeName="2019 Cropland"                                         , nodeID=63,  mapClass=1,  nodeCol=8, nodeGroup='a')) %>% 
                rbind(data.frame(nodeName="2019 Forest"                                           , nodeID=64,  mapClass=2,  nodeCol=8, nodeGroup='b')) %>%
-               rbind(data.frame(nodeName="2019 Shrub"                                           , nodeID=65,  mapClass=3,  nodeCol=8, nodeGroup='c')) %>%
-               rbind(data.frame(nodeName="2019 Grassland"                              , nodeID=66,  mapClass=4,  nodeCol=8, nodeGroup='d')) %>%
-               rbind(data.frame(nodeName="2019 Water"                                         , nodeID=67,  mapClass=5,  nodeCol=8, nodeGroup='e')) %>%
-               rbind(data.frame(nodeName="2019 Sonw/Ice"                          , nodeID=68,  mapClass=6,  nodeCol=8, nodeGroup='f')) %>% 
-               rbind(data.frame(nodeName="2019 Barren"                        , nodeID=69,  mapClass=7,  nodeCol=8, nodeGroup='g')) %>%
-               rbind(data.frame(nodeName="2019 Impervious"            , nodeID=70,  mapClass=8,  nodeCol=8, nodeGroup='h')) %>%
-               rbind(data.frame(nodeName="2019 Wetland"               , nodeID=71,  mapClass=9,  nodeCol=8, nodeGroup='i')) 
-# 记得删除最后一行的%号，不然会导致数据写入错误。
+               rbind(data.frame(nodeName="2019 Shrub"                                            , nodeID=65,  mapClass=3,  nodeCol=8, nodeGroup='c')) %>%
+               rbind(data.frame(nodeName="2019 Grassland"                                        , nodeID=66,  mapClass=4,  nodeCol=8, nodeGroup='d')) %>%
+               rbind(data.frame(nodeName="2019 Water"                                            , nodeID=67,  mapClass=5,  nodeCol=8, nodeGroup='e')) %>%
+               rbind(data.frame(nodeName="2019 Sonw/Ice"                                         , nodeID=68,  mapClass=6,  nodeCol=8, nodeGroup='f')) %>% 
+               rbind(data.frame(nodeName="2019 Barren"                                           , nodeID=69,  mapClass=7,  nodeCol=8, nodeGroup='g')) %>%
+               rbind(data.frame(nodeName="2019 Impervious"                                       , nodeID=70,  mapClass=8,  nodeCol=8, nodeGroup='h')) %>%
+               rbind(data.frame(nodeName="2019 Wetland"                                          , nodeID=71,  mapClass=9,  nodeCol=8, nodeGroup='i')) 
+# 记得删除最后一行的%号，不然会导致数据写入错误。  
                
 
 
