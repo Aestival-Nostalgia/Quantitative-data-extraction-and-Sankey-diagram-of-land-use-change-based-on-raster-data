@@ -11,7 +11,7 @@ library(dplyr)
 library(rgdal)
 
 # define file info 注意文件的路径，不能有中文
-fileInfo <- data.frame(         nodeCol=1, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_1985_clip.tif", rasterBand=1) %>%
+fileInfo <- data.frame(nodeCol=1, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_1985_clip.tif", rasterBand=1) %>%
  rbind(data.frame(nodeCol=2, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_1990_clip.tif", rasterBand=1)) %>%
  rbind(data.frame(nodeCol=3, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_1995_clip.tif", rasterBand=1)) %>%
  rbind(data.frame(nodeCol=4, rasterFile="G:/Bachelor_Degree_Thesis/DATA/LUCC_30m_WHU/Extracted/CLCD_v01_2000_clip.tif", rasterBand=1)) %>%
